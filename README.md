@@ -2,23 +2,23 @@ Runtime Permission
 ===================
 
 [![CircleCI](https://circleci.com/gh/florent37/RuntimePermission/tree/master.svg?style=svg)](https://circleci.com/gh/florent37/RuntimePermission/tree/master)
-[![Language](https://img.shields.io/badge/compatible-java%20%7C%20kotlin%20%7C%20rx-brightgreen.svg)](https://www.github.com/florent37/RuntimePermission)
+[![Language](https://img.shields.io/badge/compatible-java%20%7C%20kotlin%20%7C%20rx-brightgreen.svg)](https://github.com/dhanaprasad1989/RunTimePermissions)
 
-[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/intro.png)](https://www.github.com/florent37/RuntimePermission)
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/intro.png)](https://github.com/dhanaprasad1989/RunTimePermissions)
 
 Simpliest way to ask runtime permissions on Android, choose your way : 
-- [Kotlin](https://github.com/florent37/RuntimePermission#kotlin)
-- [Kotlin with Coroutines](https://github.com/florent37/RuntimePermission#kotlin-coroutines)
-- [RxJava](https://github.com/florent37/RuntimePermission#rxjava)
-- [Java8](https://github.com/florent37/RuntimePermission#java8)
-- [Java7](https://github.com/florent37/RuntimePermission#java7)
+- [Kotlin](https://github.com/dhanaprasad1989/RunTimePermissions#kotlin)
+- [Kotlin with Coroutines](https://github.com/dhanaprasad1989/RunTimePermissions#kotlin-coroutines)
+- [RxJava](https://github.com/dhanaprasad1989/RunTimePermissions#rxjava)
+- [Java8](https://github.com/dhanaprasad1989/RunTimePermissions#java8)
+- [Java7](https://github.com/dhanaprasad1989/RunTimePermissions#java7)
 
 **No need to override Activity or Fragment**`onPermissionResult(code, permissions, result)`**using this library, you just have to executue RuntimePermission's methods** 
 This will not cut your code flow
 
 # General Usage (cross language)
 
-[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ]
 ```java
 dependencies {
     implementation 'com.github.florent37:runtime-permission:(lastest version)'
@@ -32,7 +32,7 @@ RuntimePermission can automatically check **all** of your needed permissions
 
 For example, if you add to your *AndroidManifest.xml* :
 
-[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/manifest-permissions.png)](https://www.github.com/florent37/RuntimePermission)
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/manifest-permissions.png)](https://github.com/dhanaprasad1989/RunTimePermissions)
 
 You can use `askPermission` without specifying any permission
 
@@ -45,7 +45,7 @@ askPermission(){
 }
 ```
 
-[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/permissions.png)](https://www.github.com/florent37/RuntimePermission)
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/permissions.png)](https://github.com/dhanaprasad1989/RunTimePermissions)
 
 Will automatically ask for **CONTACTS** and **LOCALISATION** permissions
 
@@ -62,7 +62,7 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
 }
 ```
 
-[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/permissions.png)](https://www.github.com/florent37/RuntimePermission)
+[![screen](https://raw.githubusercontent.com/florent37/RuntimePermission/master/medias/permissions.png)](https://github.com/dhanaprasad1989/RunTimePermissions)
 
 Will ask for **CONTACTS** and **LOCALISATION** permissions
 
@@ -102,7 +102,7 @@ launch(UI) {
 
 ### Download 
 
-[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://github.com/dhanaprasad1989/RunTimePermissions)
 ```groovy
 implementation 'com.github.florent37:runtime-permission-kotlin:(last version)'
 ```
@@ -138,7 +138,7 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
 
 ### Download 
 
-[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://bintray.com/florent37/maven/runtime-permission/)
+[ ![Download](https://api.bintray.com/packages/florent37/maven/runtime-permission/images/download.svg) ](https://github.com/dhanaprasad1989/RunTimePermissions)
 ```groovy
 implementation 'com.github.florent37:runtime-permission-kotlin:(last version)'
 
