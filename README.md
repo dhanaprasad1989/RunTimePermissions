@@ -143,6 +143,137 @@ askPermission(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE
 implementation 'com.github.florent37:runtime-permission-kotlin:(last version)'
 
 ```
+
+RxJava
+new RxPermissions(this).request(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION))
+    .subscribe(result -> {
+        //all permissions already granted or just granted
+
+        your action
+    }, throwable -> {
+        final PermissionResult result = ((RxPermissions.Error) throwable).getResult();
+
+        if(result.hasDenied()) {
+            appendText(resultView, "Denied :");
+            //the list of denied permissions
+            for (String permission : result.getDenied()) {
+                appendText(resultView, permission);
+            }
+            //permission denied, but you can ask again, eg:
+
+
+            new AlertDialog.Builder(RuntimePermissionMainActivityRx.this)
+                    .setMessage("Please accept our permissions")
+                    .setPositiveButton("yes", (dialog, which) -> {
+                        result.askAgain();
+                    }) // ask again
+                    .setNegativeButton("no", (dialog, which) -> {
+                        dialog.dismiss();
+                    })
+                    .show();
+        }
+
+        if(result.hasForeverDenied()) {
+            appendText(resultView, "ForeverDenied :");
+            //the list of forever denied permissions, user has check 'never ask again'
+            for (String permission : result.getForeverDenied()) {
+                appendText(resultView, permission);
+            }
+            // you need to open setting manually if you really need it
+            result.goToSettings();
+        }
+    });
+
+Download
+implementation 'com.github.florent37:runtime-permission-rx:(last version)'
+Java8
+askPermission(this)
+     .request(Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
+
+     .onAccepted((result) -> {
+         //all permissions already granted or just granted
+
+         your action
+     })
+     .onDenied((result) -> {
+         appendText(resultView, "Denied :");
+         //the list of denied permissions
+         for (String permission : result.getDenied()) {
+             appendText(resultView, permission);
+         }
+         //permission denied, but you can ask again, eg:
+
+         new AlertDialog.Builder(RuntimePermissionMainActivityJava8.this)
+                 .setMessage("Please accept our permissions")
+                 .setPositiveButton("yes", (dialog, which) -> {
+                     result.askAgain();
+                 }) // ask again
+                 .setNegativeButton("no", (dialog, which) -> {
+                     dialog.dismiss();
+                 })
+                 .show();
+
+     })
+     .onForeverDenied((result) -> {
+         appendText(resultView, "ForeverDenied :");
+         //the list of forever denied permissions, user has check 'never ask again'
+         for (String permission : result.getForeverDenied()) {
+             appendText(resultView, permission);
+         }
+         // you need to open setting manually if you really need it
+         result.goToSettings();
+     })
+     .ask();
+Download
+ Download
+
+implementation 'com.github.florent37:runtime-permission:(last version)'
+Java7
+askPermission(this, Manifest.permission.READ_CONTACTS, Manifest.permission.ACCESS_FINE_LOCATION)
+    .ask(new PermissionListener() {
+        @Override
+        public void onAccepted(RuntimePermission runtimePermission, List<String> accepted) {
+            //all permissions already granted or just granted
+
+            your action
+        }
+
+        @Override
+        public void onDenied(RuntimePermission runtimePermission, List<String> denied, List<String> foreverDenied) {
+            if(permissionResult.hasDenied()) {
+                appendText(resultView, "Denied :");
+                //the list of denied permissions
+                for (String permission : denied) {
+                    appendText(resultView, permission);
+                }
+
+                //permission denied, but you can ask again, eg:
+
+                new AlertDialog.Builder(RuntimePermissionMainActivityJava7.this)
+                        .setMessage("Please accept our permissions")
+                        .setPositiveButton("yes", (dialog, which) -> {
+                            permissionResult.askAgain();
+                        }) // ask again
+                        .setNegativeButton("no", (dialog, which) -> {
+                            dialog.dismiss();
+                        })
+                        .show();
+            }
+
+
+            if(permissionResult.hasForeverDenied()) {
+                appendText(resultView, "ForeverDenied :");
+                //the list of forever denied permissions, user has check 'never ask again'
+                for (String permission : foreverDenied) {
+                    appendText(resultView, permission);
+                }
+                // you need to open setting manually if you really need it
+                permissionResult.goToSettings();
+            }
+        }
+    });
+    
+    
 # License
 
     Copyright 2018 TenderSoftware, Inc.
